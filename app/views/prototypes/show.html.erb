@@ -9,12 +9,14 @@
       <% if @prototype.user == current_user %>
         <div class="prototype__manage">
            <%= link_to "編集する", edit_prototype_path(@prototype), class: :prototype__btn %>
-           <%= link_to "削除する", prototype_path(@prototype), method: :delete, data: { confirm: "本当に削除しますか？" }, class: :prototype__btn %>
+           <%= link_to "削除する", prototype_path(@prototype), data: { turbo_method: :delete }, class: :prototype__btn %>
         </div>
       <% end %>
       <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
       <div class="prototype__image">
-        <%= image_tag @prototype.image.variant(resize: '200x200'), class: :card__img if @prototype.image.attached? %>
+          <div style="text-align: center;">
+            <%= image_tag @prototype.image.variant(resize: '200x200'), class: :card__img if @prototype.image.attached? %>
+        </div>
       </div>
       <div class="prototype__body">
         <div class="prototype__detail">

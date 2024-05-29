@@ -14,7 +14,7 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.new(prototype_params)
     @prototype.user = current_user
     if @prototype.save
-      redirect_to @prototype, notice: 'プロトタイプが作成されました。'
+      redirect_to '/', notice: 'プロトタイプが作成されました。'
     else
       render :new
     end
