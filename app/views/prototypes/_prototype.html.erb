@@ -5,7 +5,7 @@
     <%= link_to image_tag(resized_image, class: :card__img), prototype_path(prototype) %>
    <% end %>
    <div class="card__body">
-      <%= link_to prototype.title, user_path(prototype.user_id), class: :card__title %>
+       <%= link_to prototype.title, prototype_path(prototype), class: :card__title %>
       <p class="card__summary">
         <%= prototype.catch_copy %>
       </p>
